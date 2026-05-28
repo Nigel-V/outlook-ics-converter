@@ -17,6 +17,12 @@ services:
       - "8080:8080"
     environment:
       CALENDAR_SOURCE: "https://outlook.office365.com/owa/calendar/.../calendar.ics"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
 ```
 
 ```bash

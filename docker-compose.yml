@@ -19,4 +19,11 @@ services:
       # ── Tuning ─────────────────────────────────────────────────────────────
       CACHE_TTL: "300"                # seconds; 0 to disable
       PROXY_REQUEST_TIMEOUT: "30"     # seconds
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
     restart: unless-stopped
+
