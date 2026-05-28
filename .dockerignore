@@ -1,0 +1,29 @@
+# Version control
+.git
+.github
+
+# Ignore Docker & Compose files in build context
+docker-compose.yml
+.dockerignore
+.gitignore
+
+# Documentation and License
+README.md
+LICENSE
+
+# Testing & Cache
+tests/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environments
+.venv/
+venv/
+env/
+
+# IDE / Editors
+.vscode/
+.idea/

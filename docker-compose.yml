@@ -1,0 +1,22 @@
+services:
+  proxy:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      # ── Single calendar ─────────────────────────────────────────────────────
+      # CALENDAR_SOURCE: "https://outlook.office365.com/owa/calendar/.../calendar.ics"
+      # CALENDAR_PATH: "/calendar.ics"          # optional, default: /calendar.ics
+
+      # ── Multiple calendars ──────────────────────────────────────────────────
+      # CALENDAR_SOURCE: |
+      #   https://outlook.office365.com/owa/.../work.ics
+      #   https://outlook.office365.com/owa/.../personal.ics
+      # CALENDAR_PATH: |
+      #   /work.ics
+      #   /personal.ics
+
+      # ── Tuning ─────────────────────────────────────────────────────────────
+      CACHE_TTL: "300"                # seconds; 0 to disable
+      PROXY_REQUEST_TIMEOUT: "30"     # seconds
+    restart: unless-stopped
