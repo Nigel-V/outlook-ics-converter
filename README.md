@@ -12,7 +12,7 @@ Outlook embeds Windows-specific timezone names in published `.ics` feeds. These 
 # docker-compose.yml
 services:
   proxy:
-    image: ghcr.io/youruser/outlook-ics-converter:latest
+    image: ghcr.io/nigel-v/outlook-ics-converter:latest
     ports:
       - "8080:8080"
     environment:
